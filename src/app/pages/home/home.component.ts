@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubService } from 'src/app/services/github.service';
+import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-home',
@@ -9,10 +12,26 @@ import { GithubService } from 'src/app/services/github.service';
 export class HomeComponent implements OnInit {
 
 
-  constructor(private githubService: GithubService) {}
+  searchControl = new FormControl();
+  user: any;
 
-  ngOnInit() {}
+  constructor(private githubService: GithubService) {
+    this.setupSearch();
+  }
 
-  submit() {}
+  ngOnInit(): void {
 
+  }
+
+  setupSearch() {
+    this.searchControl.valueChanges
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        switchMap(query => this.githubService.searchUsers(query))
+      )
+      .subscribe(user => {
+        this.user = user;
+      });
+  }
 }

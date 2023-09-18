@@ -5,9 +5,16 @@
   </div>
   <div class="content-form-field">
     <mat-form-field appearance="outline" >
-      <input formControlName="username" type="text" placeholder="search" matInput>
+      <input [formControl]="searchControl" type="text" placeholder="search" matInput>
       <mat-icon matSuffix style="color: gray;">search</mat-icon>
     </mat-form-field>
-      <button (click)="submit()" mat-raised-button>Search</button>
+      <button (click)="setupSearch()" mat-raised-button>Search</button>
+  </div>
+  <div *ngIf="user">
+    <!-- Exibir os detalhes do usuário aqui -->
+    <!-- <img [src]="user.avatar_url" alt="User Avatar"> -->
+    <h2>{{ user.name }}</h2>
+    <!-- <p>{{ user.bio }}</p> -->
+    <!-- <p>Email: {{ user.email }}</p> -->
   </div>
 </main>
