@@ -1,0 +1,70 @@
+
+mat-tollBar{
+  background-color: #FFFF;
+  height: 10vh;
+}
+
+.title{
+  display: flex;
+  gap: 10px;
+}
+
+.title-search{
+  color: #0069CA;
+}
+.title-devs{
+  color: #8C19D2;
+}
+
+mat-form-field{
+  width: 30vw;
+  margin-top: 1em;
+}
+
+::ng-deep mat-form-field  .mat-mdc-form-field-flex{
+  display: flex;
+  align-items: center;
+}
+
+main{
+  width: 100%;
+  height: 100vh;
+  background-color: #FCFCFC;
+}
+
+mat-card{
+  background-color: #FFFF;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.content-cards{
+  display:grid;
+  grid-template-columns:1fr auto ;
+  gap: 1em;
+  margin: 0 3em 0 3em
+}
+
+.card-profile{
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+}
+
+.title-card-profile{
+  display: flex;
+  flex-direction: column;
+  margin-left: 1em;
+}
+
+.icon-contact-profile{
+  display: flex;
+  align-items: center;
+  float: left;
+  gap: 3px;
+}
+
+.card-repository{
+  margin-top: 2em;
+}
