@@ -14,8 +14,9 @@ import { User } from 'src/app/models/user.models';
 export class HomeComponent implements OnInit {
 
 
-  options:string[] = [];
+  options:string[] = [""];
   formGroup!: FormGroup;
+  filtersOptions:any;
 
   constructor(private githubService: GithubService, private fb: FormBuilder) {
   }
@@ -36,12 +37,15 @@ export class HomeComponent implements OnInit {
   }
 
   filterData(enteredData:any){
-
+    this.filtersOptions = this.options.filter(item => {
+      return item.toLowerCase().indexOf(enteredData.toLowerCase()) > -1;
+    })
   }
 
   getUsers(){
     this.githubService.getUsers().subscribe(response => {
       this.options = response;
+      this.filtersOptions = response;
       console.log('teste',response)
     })
   }

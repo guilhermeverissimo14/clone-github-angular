@@ -9,8 +9,10 @@ export class GithubService {
 
   constructor(private http: HttpClient) {}
 
+  private baseUrl = 'https://api.github.com/users'
+
   getUsers(): Observable<string[]> {
-    return this.http.get<any[]>('https://api.github.com/users')
+    return this.http.get<any[]>(this.baseUrl)
       .pipe(
         map(response => response.map(item => item.login))
       );
