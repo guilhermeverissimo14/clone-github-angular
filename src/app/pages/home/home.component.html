@@ -3,7 +3,7 @@
     <h1 class="title-search">Search</h1>
     <h1 class="title-devs">d_evs</h1>
   </div>
-  <form class="content-form-field">
+  <!-- <form [formGroup]="formGroup" class="content-form-field">
     <mat-form-field appearance="outline" >
       <input type="text" placeholder="Enter Location" matInput formControlName="formAction"
           [matAutocomplete]="auto">
@@ -15,7 +15,12 @@
       </mat-autocomplete>
     </mat-form-field>
       <button  mat-raised-button>Search</button>
-  </form>
+  </form> -->
+  <div class="container">
+    <h1>Search for a GitHub User</h1>
+    <input [(ngModel)]="username" placeholder="Enter GitHub username" />
+    <button (click)="searchUser()">Search</button>
+  </div>
 </main>
 
 
