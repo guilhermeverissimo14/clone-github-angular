@@ -3,18 +3,28 @@
     <h1 class="title-search">Search</h1>
     <h1 class="title-devs">d_evs</h1>
   </div>
-  <div class="content-form-field">
+  <!-- <div class="content-form-field">
     <mat-form-field appearance="outline" >
       <input [formControl]="searchControl" type="text" placeholder="search" matInput>
       <mat-icon matSuffix style="color: gray;">search</mat-icon>
     </mat-form-field>
       <button (click)="setupSearch()" mat-raised-button>Search</button>
-  </div>
-  <div *ngIf="user">
-    <!-- Exibir os detalhes do usuário aqui -->
-    <!-- <img [src]="user.avatar_url" alt="User Avatar"> -->
-    <h2>{{ user.name }}</h2>
-    <!-- <p>{{ user.bio }}</p> -->
-    <!-- <p>Email: {{ user.email }}</p> -->
-  </div>
-</main>
+  </div> -->
+
+  <form [formGroup]="formGroup">
+    <mat-form-field>
+      <input type="text" placeholder="Enter Location" matInput formControlName="formAction"
+          [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let item of options" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+
+
+
+
+

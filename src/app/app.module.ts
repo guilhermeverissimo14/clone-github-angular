@@ -15,7 +15,7 @@ import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms'
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms'
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

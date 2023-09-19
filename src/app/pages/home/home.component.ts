@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubService } from 'src/app/services/github.service';
 import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { startWith, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { User } from 'src/app/models/user.models';
 
 
 @Component({
@@ -12,26 +14,35 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 export class HomeComponent implements OnInit {
 
 
-  searchControl = new FormControl();
-  user: any;
+  options:string[] = [];
+  formGroup!: FormGroup;
 
-  constructor(private githubService: GithubService) {
-    this.setupSearch();
+  constructor(private githubService: GithubService, private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
+    this.getUsers();
+    this.initForm();
+  }
+
+  initForm(){
+    this.formGroup = this.fb.group({
+      'formAction':['']
+    })
+    this.formGroup.get('formAction')?.valueChanges.subscribe(response=>{
+      this.filterData(response)
+      console.log(response);
+    })
+  }
+
+  filterData(enteredData:any){
 
   }
 
-  setupSearch() {
-    this.searchControl.valueChanges
-      .pipe(
-        debounceTime(300),
-        distinctUntilChanged(),
-        switchMap(query => this.githubService.searchUsers(query))
-      )
-      .subscribe(user => {
-        this.user = user;
-      });
+  getUsers(){
+    this.githubService.getUsers().subscribe(response => {
+      this.options = response;
+      console.log('teste',response)
+    })
   }
 }
