@@ -68,6 +68,7 @@ mat-card-header img {
 mat-card-header {
   display: flex;
   align-items: center;
+  margin-bottom: 1em;
 }
 
 mat-card-title {
@@ -80,12 +81,6 @@ mat-card-title {
   align-items: center;
   float: left;
   gap: 3px;
-}
-
-.card-repository {
-  margin-top: 2em;
-  width: 70%;
-  margin: 1em 0 1em 0;
 }
 
 mat-card-content p {
@@ -120,21 +115,32 @@ mat-icon {
   margin: 0;
 }
 
-.icons {
-  display: flex;
-  flex-direction: column;
-}
-
-.labels {
-  display: flex;
-  flex-direction: column;
-  gap: .1em;
+.card-repository {
+  margin-top: 2em;
+  width: 70%;
+  margin: 1em 0 1em 0;
 }
 
 .card-repository mat-card-content {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   margin-top: 2em;
+  gap: 1em;
 
+}
+
+.card-repository mat-card-content a {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  text-decoration: none;
+  color:#171923 ;
+  font-weight: bold;
+}
+
+.card-repository mat-card-content p {
+  margin: 0;
 }
 
 .card-repository mat-card-content h3 {
@@ -153,4 +159,40 @@ mat-icon {
   cursor: pointer;
   margin: 0;
   color: #0069CA;
+}
+
+.repository-start{
+  display: flex;
+  align-items: center;
+  margin: 0;
+  gap: .2em;
+}
+
+.repository-start mat-icon{
+  margin: 0;
+  transform: scale(.8);
+  color: #4A5568;
+}
+
+.repository-start span{
+  margin: 0;
+  font-size: 12px;
+}
+
+.btn-contact{
+  display: flex;
+  justify-content: center;
+  margin: 4em 0 ;
+}
+
+.btn-contact a{
+  width: max-content;
+  width: 70%;
+  background-color: #8C19D2;
+  color: white;
+  margin: 0;
+}
+
+.btn-contact a:hover{
+  background-color: #a36bc6;
 }

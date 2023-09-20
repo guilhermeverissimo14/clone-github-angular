@@ -52,7 +52,7 @@
           <span>{{ user.location }}</span>
         </div>
 
-        <div >
+        <div>
           <mat-icon *ngIf="user.email">mail</mat-icon>
           <span>{{ user.email }}</span>
         </div>
@@ -60,36 +60,48 @@
         <div class="profile-labels">
           <mat-icon *ngIf="user.blog">link</mat-icon>
           <a *ngIf="user.blog" [href]="sanitizeUrl(user.blog)" target="_blank"
-          >Website</a
-        >
+            >Website</a
+          >
         </div>
 
         <div class="profile-labels">
           <mat-icon *ngIf="user.twitter_username">home</mat-icon>
           <a
-          *ngIf="user.twitter_username"
-          [href]="'https://twitter.com/' + user.twitter_username"
-          target="_blank"
-          >Twitter</a
-        >
+            *ngIf="user.twitter_username"
+            [href]="'https://twitter.com/' + user.twitter_username"
+            target="_blank"
+            >Twitter</a
+          >
         </div>
       </mat-card-content>
-      <button>Contato</button>
+      <div class="btn-contact">
+        <a [href]="user.html_url" mat-button>Contato</a>
+      </div>
     </mat-card>
     <mat-card class="card-repository">
       <mat-card-content *ngFor="let repo of repos.slice(0, visibleRepoCount)">
-        <h3>
-          {{repo.name}}
-        </h3>
-        <p>{{repo.description}}</p>
-        <span>
+        <a [href]="repo.html_url" target="_blank">
+          {{ repo.name }}
+        </a>
+        <p>{{ repo.description }}</p>
+        <div class="repository-start">
           <mat-icon>star</mat-icon>
-          {{repo.stargazers_count}}
-        </span>
-        <hr >
+          <span>
+            {{ repo.stargazers_count }}
+          </span>
+          <li style="margin: 0 2em; font-size: 12px;">
+            {{ repo.language }}
+          </li>
+        </div>
+        <div style="width: 100%; border: 2px solid #E2E8F0;"></div>
       </mat-card-content>
 
-      <a *ngIf="visibleRepoCount < repos.length" class="btn btn-link" (click)="showMoreRepos()">Ver Mais...</a>
+      <a
+        *ngIf="visibleRepoCount < repos.length"
+        class="btn btn-link"
+        (click)="showMoreRepos()"
+        >Ver Mais...</a
+      >
     </mat-card>
   </div>
 </main>
