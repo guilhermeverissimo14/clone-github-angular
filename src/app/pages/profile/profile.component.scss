@@ -1,70 +1,156 @@
-
-mat-tollBar{
+mat-toolBar {
   background-color: #FFFF;
   height: 10vh;
 }
 
-.title{
+.title {
   display: flex;
   gap: 10px;
 }
 
-.title-search{
+.title-search {
   color: #0069CA;
 }
-.title-devs{
+
+.title-devs {
   color: #8C19D2;
 }
 
-mat-form-field{
+mat-form-field {
   width: 30vw;
   margin-top: 1em;
 }
 
-::ng-deep mat-form-field  .mat-mdc-form-field-flex{
+::ng-deep mat-form-field .mat-mdc-form-field-flex {
   display: flex;
   align-items: center;
 }
 
-main{
+main {
   width: 100%;
   height: 100vh;
   background-color: #FCFCFC;
 }
 
-mat-card{
+mat-card {
   background-color: #FFFF;
   display: flex;
   flex-direction: column;
 
 }
 
-.content-cards{
-  display:grid;
-  grid-template-columns:1fr auto ;
+.content-cards {
+  display: flex;
   gap: 1em;
-  margin: 0 3em 0 3em
+  margin: 0em 3em 0 3em
 }
 
-.card-profile{
+.card-profile {
   display: flex;
   flex-direction: column;
   margin-top: 2em;
+  width: 27%;
+  margin: 1em 0 1em 0;
 }
 
-.title-card-profile{
-  display: flex;
-  flex-direction: column;
+.title-card-profile {
   margin-left: 1em;
 }
 
-.icon-contact-profile{
+.title-card-profile img {
+  margin: 0;
+}
+
+mat-card-header img {
+  margin: 0;
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+}
+
+mat-card-title {
+  white-space: nowrap;
+  font-size: 20px;
+}
+
+.icon-contact-profile {
   display: flex;
   align-items: center;
   float: left;
   gap: 3px;
 }
 
-.card-repository{
+.card-repository {
   margin-top: 2em;
+  width: 70%;
+  margin: 1em 0 1em 0;
+}
+
+mat-card-content p {
+  color: #4A5568;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+mat-icon {
+  color: #4A5568;
+}
+
+.profile-labels {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: .5em;
+  margin-bottom: .5em;
+}
+
+.profile-labels span {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.profile-labels a {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.profile-labels mat-icon {
+  margin: 0;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+}
+
+.labels {
+  display: flex;
+  flex-direction: column;
+  gap: .1em;
+}
+
+.card-repository mat-card-content {
+  margin: 0;
+  margin-top: 2em;
+
+}
+
+.card-repository mat-card-content h3 {
+  font-size: 20px;
+  color: #171923;
+}
+
+.card-repository mat-card-content p {
+  font-size: 16px;
+  color: #4A5568;
+}
+
+.card-repository a {
+  padding: 1em;
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 0;
+  color: #0069CA;
 }

@@ -10,95 +10,89 @@
     </mat-form-field>
   </div>
 </mat-toolbar>
-<main>
+<main *ngIf="user; else notFaund">
   <div class="content-cards">
     <mat-card class="card-profile">
       <mat-card-header>
         <img
           mat-card-avatar
-          src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+          [src]="user.avatar_url"
           alt="Photo of a Shiba Inu"
         />
         <div class="title-card-profile">
-          <mat-card-title>Diego Silva</mat-card-title>
-          <mat-card-subtitle>@diegosilva</mat-card-subtitle>
+          <mat-card-title style="color: #171923">
+            {{ user.name }}
+          </mat-card-title>
+          <mat-card-subtitle style="color: #a0aec0">
+            {{ user.login }}
+          </mat-card-subtitle>
         </div>
       </mat-card-header>
       <mat-card-content>
-        <p>
-          Lorem ipsum dolor sit amet consectetu r, adipisicing elit. Odit
-          incidunt, reprehenderit voluptatibus nisi qui vel alias
+        <p *ngIf="user.bio">
+          {{ user.bio }}
         </p>
-        <div style="display: flex; flex-direction: column; float: left;">
-          <div class="icon-contact-profile">
-            <mat-icon>home</mat-icon>
-            <span>240 seguidores</span>
-          </div>
-          <div class="icon-contact-profile">
-            <mat-icon>home</mat-icon>
-            <span>24 seguindo</span>
-          </div>
+        <div class="profile-labels">
+          <mat-icon *ngIf="user.followers">groups</mat-icon>
+          <span> {{ user.followers }} seguidores </span>
         </div>
-        <div style="display: flex; flex-direction: column;float: left;">
-          <div class="icon-contact-profile">
-            <mat-icon>home</mat-icon>
-            <span>Empresa</span>
-          </div>
-          <div class="icon-contact-profile">
-            <mat-icon>home</mat-icon>
-            <span>Cidade</span>
-          </div>
-          <div class="icon-contact-profile">
-            <mat-icon>home</mat-icon>
-            <span>email</span>
-          </div>
-          <div class="icon-contact-profile">
-            <mat-icon>home</mat-icon>
-            <span>site</span>
-          </div>
-          <div class="icon-contact-profile">
-            <mat-icon>home</mat-icon>
-            <span>twiter</span>
-          </div>
+
+        <div class="profile-labels">
+          <mat-icon *ngIf="user.following">favorite</mat-icon>
+          <span> {{ user.following }} seguindo </span>
+        </div>
+
+        <div class="profile-labels">
+          <mat-icon *ngIf="user.company">location_city</mat-icon>
+          <span>{{ user.company }}</span>
+        </div>
+
+        <div class="profile-labels">
+          <mat-icon *ngIf="user.location">location_on</mat-icon>
+          <span>{{ user.location }}</span>
+        </div>
+
+        <div >
+          <mat-icon *ngIf="user.email">mail</mat-icon>
+          <span>{{ user.email }}</span>
+        </div>
+
+        <div class="profile-labels">
+          <mat-icon *ngIf="user.blog">link</mat-icon>
+          <a *ngIf="user.blog" [href]="sanitizeUrl(user.blog)" target="_blank"
+          >Website</a
+        >
+        </div>
+
+        <div class="profile-labels">
+          <mat-icon *ngIf="user.twitter_username">home</mat-icon>
+          <a
+          *ngIf="user.twitter_username"
+          [href]="'https://twitter.com/' + user.twitter_username"
+          target="_blank"
+          >Twitter</a
+        >
         </div>
       </mat-card-content>
+      <button>Contato</button>
     </mat-card>
     <mat-card class="card-repository">
-      <img
-        mat-card-avatar
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-        alt="Photo of a Shiba Inu"
-      />
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz
-          breeds of dog from Japan. A small, agile dog that copes very well with
-          mountainous terrain, the Shiba Inu was originally bred for hunting.
-        </p>
+      <mat-card-content *ngFor="let repo of repos.slice(0, visibleRepoCount)">
+        <h3>
+          {{repo.name}}
+        </h3>
+        <p>{{repo.description}}</p>
+        <span>
+          <mat-icon>star</mat-icon>
+          {{repo.stargazers_count}}
+        </span>
+        <hr >
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
+
+      <a *ngIf="visibleRepoCount < repos.length" class="btn btn-link" (click)="showMoreRepos()">Ver Mais...</a>
     </mat-card>
   </div>
-  <div class="container">
-    <div *ngIf="user">
-      <h1>{{ user.name }}</h1>
-      <p>{{ user.bio }}</p>
-      <p>
-        <a *ngIf="user.blog" [href]="user.blog" target="_blank">Website</a>
-        <a *ngIf="user.twitter_username" [href]="'https://twitter.com/' + user.twitter_username" target="_blank">Twitter</a>
-      </p>
-    </div>
-    <h2>Repositories</h2>
-    <ul>
-      <li *ngFor="let repo of repos">
-        <a [href]="repo.html_url" target="_blank">{{ repo.name }}</a>
-        <p>{{ repo.description }}</p>
-        <p>Stars: {{ repo.stargazers_count }}</p>
-      </li>
-    </ul>
-    <button routerLink="/">Back to Home</button>
-  </div>
 </main>
+<ng-template #notFaund>
+  <h4>Usuário não encontrado...</h4>
+</ng-template>

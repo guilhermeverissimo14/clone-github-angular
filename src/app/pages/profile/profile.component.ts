@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/models/user.models';
 import { GithubService } from 'src/app/services/github.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +13,8 @@ export class ProfileComponent implements OnInit {
   username: string = '';
   user: any;
   repos: any[] = [];
-  constructor(private route: ActivatedRoute, private profileService: GithubService) { }
+  visibleRepoCount: number = 5;
+  constructor(private route: ActivatedRoute, private profileService: GithubService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
@@ -21,6 +22,7 @@ export class ProfileComponent implements OnInit {
       this.loadUser();
       this.loadRepos();
     });
+    this.loadUser();
   }
 
   loadUser() {
@@ -34,6 +36,16 @@ export class ProfileComponent implements OnInit {
       this.repos = data;
       this.repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
     });
+  }
+
+  //função para garantir que a url é segura
+  sanitizeUrl(url: string): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustUrl(url);
+  }
+
+  // Aumenta o número de repositórios visíveis em 5
+  showMoreRepos() {
+    this.visibleRepoCount += 5;
   }
 
 }
