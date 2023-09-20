@@ -3,14 +3,18 @@
     <h1 class="title-search">Search</h1>
     <h1 class="title-devs">d_evs</h1>
   </div>
-  <div class="content-form-field">
-    <mat-form-field appearance="outline">
-      <mat-icon matSuffix>search</mat-icon>
-      <input type="text" placeholder="search" matInput />
-    </mat-form-field>
+  <div class="input-container">
+    <i class="material-icons search-icon">search</i>
+    <input
+      [(ngModel)]="username"
+      matInput
+      type="text"
+      placeholder="Search"
+      class="content-input"
+    />
   </div>
 </mat-toolbar>
-<main *ngIf="user; else notFaund">
+<main *ngIf="user; else notFound">
   <div class="content-cards">
     <mat-card class="card-profile">
       <mat-card-header>
@@ -20,10 +24,10 @@
           alt="Photo of a Shiba Inu"
         />
         <div class="title-card-profile">
-          <mat-card-title style="color: #171923">
+          <mat-card-title>
             {{ user.name }}
           </mat-card-title>
-          <mat-card-subtitle style="color: #a0aec0">
+          <mat-card-subtitle>
             {{ user.login }}
           </mat-card-subtitle>
         </div>
@@ -89,11 +93,11 @@
           <span>
             {{ repo.stargazers_count }}
           </span>
-          <li style="margin: 0 2em; font-size: 12px;">
+          <li style="margin: 0 2em; font-size: 12px">
             {{ repo.language }}
           </li>
         </div>
-        <div style="width: 100%; border: 2px solid #E2E8F0;"></div>
+        <div style="width: 100%; border: 2px solid #e2e8f0"></div>
       </mat-card-content>
 
       <a
@@ -105,6 +109,6 @@
     </mat-card>
   </div>
 </main>
-<ng-template #notFaund>
+<ng-template #notFound>
   <h4>Usuário não encontrado...</h4>
 </ng-template>

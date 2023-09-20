@@ -1,6 +1,6 @@
 mat-toolBar {
   background-color: #FFFF;
-  height: 10vh;
+  height: 88px;
 }
 
 .title {
@@ -16,15 +16,30 @@ mat-toolBar {
   color: #8C19D2;
 }
 
-mat-form-field {
-  width: 30vw;
-  margin-top: 1em;
+.input-container {
+  display: flex;
+  width: 592px;
+  height: 48px;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
 }
 
-::ng-deep mat-form-field .mat-mdc-form-field-flex {
-  display: flex;
-  align-items: center;
+.input-container .material-icons.search-icon {
+  margin-right: 8px;
+  margin-left: 8px;
+  color: #e2e8f0;
 }
+
+.input-container input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0;
+  font-size: 16px;
+  font-family: "Inter";
+}
+
 
 main {
   width: 100%;
@@ -57,10 +72,6 @@ mat-card {
   margin-left: 1em;
 }
 
-.title-card-profile img {
-  margin: 0;
-}
-
 mat-card-header img {
   margin: 0;
 }
@@ -74,6 +85,17 @@ mat-card-header {
 mat-card-title {
   white-space: nowrap;
   font-size: 20px;
+  color:#171923 ;
+  font-weight: 700;
+  line-height: 24px;
+  font-family: 'Inter';
+}
+
+mat-card-subtitle {
+  color:#A0AEC0;
+  font-weight: 400;
+  line-height: 21px;
+  font-family: 'Inter';
 }
 
 .icon-contact-profile {
@@ -87,6 +109,9 @@ mat-card-content p {
   color: #4A5568;
   font-size: 16px;
   line-height: 24px;
+  font-family: 'Inter';
+  font-weight: 400;
+  margin-bottom: 1em;
 }
 
 mat-icon {
@@ -104,11 +129,19 @@ mat-icon {
 .profile-labels span {
   margin: 0;
   white-space: nowrap;
+  font-size: 14px;
+  font-family: 'Inter';
+  line-height: 21px;
+  font-weight: 400;
 }
 
 .profile-labels a {
   margin: 0;
   white-space: nowrap;
+  font-family: 'Inter';
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
 }
 
 .profile-labels mat-icon {
@@ -116,7 +149,7 @@ mat-icon {
 }
 
 .card-repository {
-  margin-top: 2em;
+  margin-top: 1em;
   width: 70%;
   margin: 1em 0 1em 0;
 }
@@ -125,7 +158,7 @@ mat-icon {
   display: flex;
   flex-direction: column;
   margin: 0;
-  margin-top: 2em;
+  margin-top: .8em;
   gap: 1em;
 
 }
@@ -136,21 +169,18 @@ mat-icon {
   font-size: 20px;
   text-decoration: none;
   color:#171923 ;
-  font-weight: bold;
+  font-weight: 700;
+  line-height: 24px;
+  font-family: 'Inter';
 }
 
 .card-repository mat-card-content p {
   margin: 0;
-}
-
-.card-repository mat-card-content h3 {
-  font-size: 20px;
-  color: #171923;
-}
-
-.card-repository mat-card-content p {
   font-size: 16px;
-  color: #4A5568;
+  color:#4A5568 ;
+  font-weight: 400;
+  line-height: 24px;
+  font-family: 'Inter';
 }
 
 .card-repository a {
@@ -176,7 +206,12 @@ mat-icon {
 
 .repository-start span{
   margin: 0;
-  font-size: 12px;
+  font-size: 16px;
+  text-decoration: none;
+  color:#4A5568 ;
+  font-weight: 400;
+  line-height: 24px;
+  font-family: 'Inter';
 }
 
 .btn-contact{
