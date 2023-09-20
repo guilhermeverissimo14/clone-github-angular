@@ -3,27 +3,19 @@
     <h1 class="title-search">Search</h1>
     <h1 class="title-devs">d_evs</h1>
   </div>
-  <!-- <form [formGroup]="formGroup" class="content-form-field">
-    <mat-form-field appearance="outline" >
-      <input type="text" placeholder="Enter Location" matInput formControlName="formAction"
-          [matAutocomplete]="auto">
-      <mat-icon matSuffix style="color: gray;">search</mat-icon>
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let item of filtersOptions" [value]="item">
-          {{item}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-      <button  mat-raised-button>Search</button>
-  </form> -->
   <div class="container">
-    <h1>Search for a GitHub User</h1>
-    <input [(ngModel)]="username" placeholder="Enter GitHub username" />
-    <button (click)="searchUser()">Search</button>
+    <div class="input-container">
+      <i class="material-icons search-icon">search</i>
+      <input
+        [(ngModel)]="username"
+        matInput
+        type="text"
+        placeholder="Search"
+        class="content-input"
+      />
+    </div>
+    <div class="content-search">
+      <button (click)="searchUser()">Search</button>
+    </div>
   </div>
 </main>
-
-
-
-
-
