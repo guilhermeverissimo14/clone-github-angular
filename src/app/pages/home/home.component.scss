@@ -95,4 +95,23 @@ main{
   font-family: "Inter";
 }
 
+@media (max-width: 912px) {
+  main{
+    gap: 0;
+  }
+  .title-search{
+    font-size: 40px;
+  }
+  .title-devs{
+    font-size: 40px;
+  }
+  .container{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+  .input-container{
+    width: max-content;
+  }
+}
 
