@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GithubService } from 'src/app/services/github.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { differenceInDays } from "date-fns";
@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   user: any;
   repos: any[] = [];
   visibleRepoCount: number = 5;
-  constructor(private route: ActivatedRoute, private profileService: GithubService, private sanitizer: DomSanitizer) { }
+  constructor(private route: ActivatedRoute, private profileService: GithubService, private sanitizer: DomSanitizer, public router:Router) { }
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
@@ -60,4 +60,7 @@ export class ProfileComponent implements OnInit {
     this.visibleRepoCount += 5;
   }
 
+  back(){
+    this.router.navigate(['/']);
+  }
 }

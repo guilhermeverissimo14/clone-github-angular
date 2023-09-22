@@ -3,15 +3,8 @@
     <h1 class="title-search">Search</h1>
     <h1 class="title-devs">d_evs</h1>
   </div>
-  <div class="input-container">
-    <i class="material-icons search-icon">search</i>
-    <input
-      [(ngModel)]="username"
-      matInput
-      type="text"
-      placeholder="Search"
-      class="content-input"
-    />
+  <div class="btn-back">
+    <button (click)="back()">voltar</button>
   </div>
 </mat-toolbar>
 <main *ngIf="user; else notFound">

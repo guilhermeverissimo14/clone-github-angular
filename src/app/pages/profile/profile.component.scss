@@ -255,3 +255,24 @@ mat-icon {
 .btn-contact a:hover{
   background-color: #a36bc6;
 }
+
+.btn-back button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  margin: 0;
+  padding: 10px, 24px, 10px, 24px;
+  gap: 8px;
+  border-radius: 6px;
+  font-family: "Inter";
+  line-height: 28px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.btn-back button:hover{
+  background-color: rgb(197, 74, 74);
+}
