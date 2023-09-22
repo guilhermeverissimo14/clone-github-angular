@@ -37,39 +37,39 @@
           {{ user.bio }}
         </p>
         <div class="profile-labels">
-          <mat-icon *ngIf="user.followers">groups</mat-icon>
+          <img src="../../../assets/Group.png" style="margin: 0;" alt="">
           <span> {{ user.followers }} seguidores </span>
         </div>
 
         <div class="profile-labels">
-          <mat-icon *ngIf="user.following">favorite</mat-icon>
+          <img src="../../../assets/heart.png" style="margin: 0;" alt="">
           <span> {{ user.following }} seguindo </span>
         </div>
 
-        <div class="profile-labels">
-          <mat-icon *ngIf="user.company">location_city</mat-icon>
+        <div *ngIf="user.company" class="profile-labels">
+          <img src="../../../assets/company.png" style="margin: 0;" alt="">
           <span>{{ user.company }}</span>
         </div>
 
-        <div class="profile-labels">
-          <mat-icon *ngIf="user.location">location_on</mat-icon>
+        <div *ngIf="user.location" class="profile-labels">
+          <img src="../../../assets/location.png" style="margin: 0;" alt="">
           <span>{{ user.location }}</span>
         </div>
 
-        <div>
-          <mat-icon *ngIf="user.email">mail</mat-icon>
+        <div  *ngIf="user.email">
+          <img src="../../../assets/email.png" style="margin: 0;" alt="">
           <span>{{ user.email }}</span>
         </div>
 
-        <div class="profile-labels">
-          <mat-icon *ngIf="user.blog">link</mat-icon>
-          <a *ngIf="user.blog" [href]="sanitizeUrl(user.blog)" target="_blank"
+        <div  *ngIf="user.blog" class="profile-labels">
+          <img src="../../../assets/link.png" style="margin: 0;" alt="">
+          <a [href]="sanitizeUrl(user.blog)" target="_blank"
             >Website</a
           >
         </div>
 
-        <div class="profile-labels">
-          <mat-icon *ngIf="user.twitter_username">home</mat-icon>
+        <div class="profile-labels"  *ngIf="user.twitter_username">
+          <img src="../../../assets/Twitter.png" style="margin: 0;" alt="">
           <a
             *ngIf="user.twitter_username"
             [href]="'https://twitter.com/' + user.twitter_username"
@@ -83,29 +83,22 @@
       </div>
     </mat-card>
     <mat-card class="card-repository">
-      <mat-card-content *ngFor="let repo of repos.slice(0, visibleRepoCount)">
+      <mat-card-content *ngFor="let repo of repos">
         <a [href]="repo.html_url" target="_blank">
           {{ repo.name }}
         </a>
         <p>{{ repo.description }}</p>
         <div class="repository-start">
-          <mat-icon>star</mat-icon>
+         <img src="../../../assets/Star.png" style="margin: 0;" alt="star">
           <span>
             {{ repo.stargazers_count }}
           </span>
-          <li style="margin: 0 2em; font-size: 12px">
-            {{ repo.language }}
+          <li>
+            Atualizado há {{ repo.daysAgo }} dias
           </li>
         </div>
         <div style="width: 100%; border: 2px solid #e2e8f0"></div>
       </mat-card-content>
-
-      <a
-        *ngIf="visibleRepoCount < repos.length"
-        class="btn btn-link"
-        (click)="showMoreRepos()"
-        >Ver Mais...</a
-      >
     </mat-card>
   </div>
 </main>

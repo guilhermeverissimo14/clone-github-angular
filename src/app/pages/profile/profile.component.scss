@@ -10,10 +10,18 @@ mat-toolBar {
 
 .title-search {
   color: #0069CA;
+  margin: 0;
+  font-size: 32px;
+  font-family: "Nunito";
+  font-weight: 700;
 }
 
 .title-devs {
   color: #8C19D2;
+  margin: 0;
+  font-size: 32px;
+  font-family: "Nunito";
+  font-weight: 700;
 }
 
 .input-container {
@@ -114,6 +122,10 @@ mat-card-content p {
   margin-bottom: 1em;
 }
 
+.card-profile mat-card-content{
+  margin: 0;
+}
+
 mat-icon {
   color: #4A5568;
 }
@@ -140,7 +152,7 @@ mat-icon {
   white-space: nowrap;
   font-family: 'Inter';
   font-weight: 600;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 28px;
 }
 
@@ -151,7 +163,9 @@ mat-icon {
 .card-repository {
   margin-top: 1em;
   width: 70%;
+  height: 80vh;
   margin: 1em 0 1em 0;
+  overflow: auto;
 }
 
 .card-repository mat-card-content {
@@ -206,11 +220,21 @@ mat-icon {
 
 .repository-start span{
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   text-decoration: none;
   color:#4A5568 ;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 21px;
+  font-family: 'Inter';
+}
+
+.repository-start li{
+  margin: 0 5px;
+  font-size: 14px;
+  text-decoration: none;
+  color:#4A5568 ;
+  font-weight: 400;
+  line-height: 21px;
   font-family: 'Inter';
 }
 
